@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MOML version="1.0.0">
+	<THEMES id="themeMenu" >
+		<THEME id="thLeftButton" layout="385,76" align="linear:horizontal|center" defaultImg="#3E3E3E" pressedImg="#4DB8CA" margin="0,1,2,0"  />
+		<THEME id="thLabel1" layout="38,38"  margin="15,2,15,2"  />
+		<THEME id="thLabel2" layout="300,40"  fontSize="28" textAlign="vCenter" fontColor="#ffffff" margin="5,2,0,2"  />             
+	</THEMES>
+	<FUNCTIONLIST>
+		<FUNCTION id="fn_slide">
+			<FUNCTIONITEM condition="userVariable.menuView=='0'"cmd="{id_rightArea.left=0, userVariable.menuView='1',animation.flyIn('id_rightArea', 385, 0, 640, 960, 'easeOut1', 500, '')}"elseCmd="{id_rightArea.left=385, userVariable.menuView='0',animation.flyIn('id_rightArea', -385, 0, 640, 960, 'easeOut1', 500, '')}"/></FUNCTION>
+			<FUNCTION id="go_userFind">
+			<FUNCTIONITEM cmd="{function.fn_slide}" />
+			<FUNCTIONITEM cmd="action:go('root.startNavigation','recommandUserView')" />
+		</FUNCTION>    
+		<FUNCTION id="go_userProfile">
+			<FUNCTIONITEM cmd="{function.fn_slide}" />
+			<FUNCTIONITEM cmd="action:go('root.startNavigation','profileView')" />
+		</FUNCTION>    
+		<FUNCTION id="go_userPic">
+			<FUNCTIONITEM cmd="{function.fn_slide}" />
+			<FUNCTIONITEM cmd="action:go('root.startNavigation','pictureView')" />
+		</FUNCTION>                   
+	</FUNCTIONLIST>
+	<FUNCTIONCALL cmd="{userVariable.menuView='0'}" />
+	<UI>
+		<UILAYOUT portrait="640,960" theme="themeMenu">
+			<WINDOW layout="0,0,640,960" align="relative" defaultImg="#000000">  
+				<WINDOW id="id_leftMenu" layout="0,0,385,960" align="linear:vertical" defaultImg="#000000">        
+					<BUTTON themeId="th_leftButton" margin="0,0,2,0" onClick="{}">
+						<LABEL themeId="thLabel1" defaultImg="./image/ic_nav_home.png"/>  
+						<LABEL themeId="thLabel2" text="Home"/>
+					</BUTTON>
+					<BUTTON  themeId="th_leftButton"  onClick="{function.go_userFind}">
+						<LABEL themeId="thLabel1"  defaultImg="./image/ic_nav_circles.png"  />  
+						<LABEL themeId="thLabel2" text="Find User"/> 
+					</BUTTON>
+					<BUTTON  themeId="th_leftButton" onClick="{function.go_userProfile}">
+						<LABEL themeId="thLabel1"  defaultImg="./image/ic_nav_profile.png"  />  
+						<LABEL themeId="thLabel2"  text="Profile" /> 
+					</BUTTON>      
+					<BUTTON  themeId="th_leftButton"  onClick="{function.go_userPic}">
+						<LABEL themeId="thLabel1"  defaultImg="./image/ic_nav_myphotos.png"   />  
+						<LABEL themeId="thLabel2" text="Photos"/> 
+					</BUTTON>      
+					<BUTTON  themeId="th_leftButton" onClick="{}">
+						<LABEL themeId="thLabel1"  defaultImg="./image/ic_nav_communities.png"  />  
+						<LABEL themeId="thLabel2"  text="Communities" /> 
+					</BUTTON> 
+					<BUTTON  themeId="th_leftButton" onClick="{}">
+						<LABEL themeId="thLabel1"  defaultImg="./image/ic_nav_hangouts.png"   />  
+						<LABEL themeId="thLabel2"  text="Hangout"  /> 
+					</BUTTON>      
+					<BUTTON themeId="th_leftButton" onClick="{}">
+						<LABEL themeId="thLabel1"  defaultImg="./image/ic_nav_events.png"  />  
+						<LABEL themeId="thLabel2" text="Events"  /> 
+					</BUTTON>      
+					<BUTTON themeId="th_leftButton" onClick="{}">
+						<LABEL themeId="thLabel1"  defaultImg="./image/ic_nav_messenger.png"  />  
+						<LABEL themeId="thLabel2"   text="+Tolk"  /> 
+					</BUTTON>      
+					<BUTTON themeId="th_leftButton" onClick="{}">
+						<LABEL  themeId="thLabel1" defaultImg="./image/ic_nav_local.png"   />  
+						<LABEL themeId="thLabel2" text="Local" /> 
+					</BUTTON>
+					<LABEL  themeId="th_leftButton" layout="385,267" >
+						<BUTTON layout="90,90" defaultImg="./image/ic_sliding_tab_jog_left.png" margin="15,2,15,2" />  
+						<LABEL themeId="thLabel2" layout="200,90" text="Call" /> 
+					</LABEL>
+				</WINDOW>
+				<WINDOW id="id_rightArea" layout="385,0,640,960" align="linear:vertical" defaultImg="#E5E5E5" >
+					<LABEL id="id_rightTitle" layout="640,75" align="linear:horizontal|left"  defaultImg="image/ab_solid_light_holo.9.png">
+						<BUTTON id="id_ShiftBtn" layout="95,75" align="relative"  pressedImg="#4DB8CA" onClick="{function.fn_slide}">
+							<IMAGE layout="5,25,10,22" defaultImg="./image/ic_left_arrow.png" />
+							<IMAGE layout="20,0,75,75" defaultImg="./image/ic_actionbar_gplus.png" />
+						</BUTTON> 
+						<BUTTON id="id_FindtBtn" layout="160,75" align="relative"  pressedImg="#4DB8CA" onClick="{function.fn_slide}">
+							<LABEL layout="3,15,120,45" text="Find User" fontSize="28" textAlign="vCenter" fontColor="#000000"  />
+							<IMAGE layout="125,40,35,35" defaultImg="./image/gd_action_bar_group.png" />
+						</BUTTON>                        
+					</LABEL>
+					<WINDOW layout="640,885" align="relative" >
+						<NAVIGATIONCONTAINER id="startNavigation" layout="0,75,640,885" selectItem="recommandUserView" >
+							<VIEWITEM id="recommandUserView" src="url:./recommandUserView.xml" transitionInEffect="slide:rightIn|leftOut"/>         
+							<VIEWITEM id="profileView" src="url:./profileView.xml" transitionInEffect="slide:rightIn|leftOut"/>
+							<VIEWITEM id="pictureView" src="url:./pictureView.xml" transitionInEffect="slide:rightIn|leftOut"/>
+						</NAVIGATIONCONTAINER>
+					</WINDOW>  
+				</WINDOW>
+			</WINDOW>
+		</UILAYOUT>
+	</UI>
+</MOML> 
