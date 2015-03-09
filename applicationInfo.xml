@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MOML>
  <APPLICATIONINFO>
-  <START url="start.xml" /> 
+  <START url="startNavigationMain.xml" /> 
   <ORIENTATION type="defaultPortrait" />
  </APPLICATIONINFO>
 </MOML>
