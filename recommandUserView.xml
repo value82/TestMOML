@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MOML version="1.0.0">
+
+
+    <UI>
+        <UILAYOUT portrait="640,875" >  
+         
+			<WINDOW id="id_rightArea" layout="0,0,640,875" align="linear:horizontal" defaultImg="#E5E5E5"  scroll="horizontal" >
+
+        		<BUTTON layout="450,270" align="relative" defaultImg="./image/photobackground.9.png" fontColor="#55aa66" margin="20,0,50,0">
+        			<LABEL id="id_userPic" layout="30,50,140,140" fontSize="28" defaultImg="./image/ic_avatar.png"/>
+        			<LABEL id="id_userPicCircle" layout="30,50,140,140" fontSize="28" defaultImg="./image/ic_hangout_ringing_touch_handle_pressed.png"/>        			
+        			<LABEL id="id_userTitle" layout="200,50,200,100" fontSize="32" text="Kim User Name"/>
+        			<BUTTON id="id_userFollowBtn" layout="250,180,170,70" text="follow me" fontSize="28" fontColor="#ffffff" defaultImg="./image/btn_events_on_air.9.png"/> 
+        		</BUTTON>
+
+        		<BUTTON layout="450,270" align="relative" defaultImg="./image/photobackground.9.png" fontColor="#55aa66" margin="20,0,50,0">
+        			<LABEL id="id_userPic" layout="30,50,140,140" fontSize="28" defaultImg="./image/ic_avatar.png"/>
+        			<LABEL id="id_userPicCircle" layout="30,50,140,140" fontSize="28" defaultImg="./image/bg_taco_avatar.png"/>        			
+        			<LABEL id="id_userTitle" layout="200,50,200,100" fontSize="32" text="Kim User Name"/>
+        			<BUTTON id="id_userFollowBtn" layout="250,180,170,70" text="follow me" fontSize="28" fontColor="#ffffff" defaultImg="./image/btn_events_on_air.9.png"/> 
+        		</BUTTON>
+
+			</WINDOW>
+        </UILAYOUT>
+    </UI>  
+</MOML>
